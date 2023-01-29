@@ -1,11 +1,9 @@
-name: Firefox
+name: Edge
 
-on: [push]
-
+on: push
 jobs:
-  Firefox:
-    runs-on: ubuntu-22.04
-    
+  Edge:
+    runs-on: windows-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -18,9 +16,8 @@ jobs:
           key: node-modules-1${{ hashFiles('package.json') }}
 
       - name: Install
-        run: |
-          npm install
+        run: npm install
 
       - uses: cypress-io/github-action@v5
         with:
-          browser: firefox
+          browser: edge
